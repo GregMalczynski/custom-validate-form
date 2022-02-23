@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Validate Form</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(0deg, rgba(247,112,91,1) 0%, rgba(255,206,100,1) 100%);
+    font-family: 'Roboto Slab', serif;
+    color: rgb(110, 124, 138);
+    height: 100vh;
+}
+textarea {
+    padding: 5px;
+    font-family: 'Roboto Slab', serif;
+}
+.title {
+    background-color: white;
+    text-align: center;
+    color: rgb(80, 92, 104);
+}
+.form-section {
+    margin-bottom: 8px;
+    background-color: white;
+}
+.form-section label{
+    background-color: white;
+    font-size: 20px;
+}
+.form-section action{
+    background-color: white;
+}
+
+.form-section input:focus {
+    outline: 0;
+}
+.form-section textarea:focus {
+    outline: 0;
+}
+.container {
+    position: absolute;
+    width: 450px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px -8px rgb(0, 0, 0);
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    
+}
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+.textarea {
+    resize: none;
+    border: 0;
+    border-radius: 5px;
+    background-color: rgb(243, 243, 243);
+    font-size: 18px;
+}
+.form-section input {
+    border: solid 2px white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(241, 241, 241);
+    font-size: 18px;
+}
+
+.form-section.error input{
+    border: solid 2px rgb(228, 34, 34);
+}
+.form-section.success input{
+    border: solid 2px rgb(37, 184, 93);
+}
+.form-section.error textarea{
+    border: solid 2px rgb(228, 34, 34);
+}
+.form-section.success textarea{
+    border: solid 2px rgb(37, 184, 93);
+}
+.form-section.error action{
+    color: rgb(228, 34, 34);
+}
+.form-section.success action{
+    color: rgb(37, 184, 93);
+}
+.form-section action {
+    font-size: 14px;
+}
+.btn {
+    margin-top: 8px;
+    height: 40px;
+    background-color: rgb(80, 92, 104);
+    border: 0;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Custom Validate Form</h1>
+        <form class="form">
+            <section id="name" class="form-section">
+                <label name='name'>Name</label>
+                <input type="text" class="name" data-validate-text="validateTextField" value="" />
+                <action class="input"></action>
+            </section>
+            
+            <section id="surname" class="form-section">
+                <label name='name'>Surname</label>
+                <input type="text" class="surname" data-validate-text="validateTextField" value="" />
+                <action class="input"></action>
+            </section>
+    
+            <section id="email" class="form-section">
+                <label name="email">Email</label>
+                <input type="text" class="email" data-validate-text="validateEmailField" value="" />
+                <action class="email"></action>
+            </section>
+    
+            <section id="password" class="form-section">
+                <label name="password">Password</label>
+                <input type="password" class="password" data-validate-text="validatePasswordField" value="" />
+                <action class="password"></action>
+            </section>
+    
+            <section id="textarea" class="form-section">
+                <label name="textarea">Textarea</label>
+                <textarea class="textarea" rows="5" cols="30" data-validate-text="validateTextareaField" value=""></textarea>
+                <action class="textarea"></action>
+            </section>
+
+            <section id="info"class="form-section">
+                <label name="info">info</label>
+                <input type="text" class="info" name="input" data-validate-text="validateTextField" value="" />
+                <action class="input"></action>
+            </section>
+
+            <section id="info" class="form-section">
+                <label name="info">info</label>
+                <input type="text" class="info1" name="input" data-validate-text="validateTextField" value="" />
+                <action class="input"></action>
+            </section>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        
+    </div>
+    
+    <script src="main.js"></script>
+    
+</body>
+</html>
