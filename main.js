@@ -60,8 +60,8 @@ for ( let index = 0; index < arr.length; index++) {
 }
 
     function myFunction(e, index) {
-        const hh = e.target
-        newFunction(hh.getAttribute('data-validate-text'), index)
+        const eventTarget = e.target
+        newFunction(eventTarget.getAttribute('data-validate-text'), index)
     }
 
     function newFunction( getAttribute, index) {
