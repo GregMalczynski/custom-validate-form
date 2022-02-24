@@ -1,0 +1,117 @@
+:root {
+    --error-color: rgb(228, 34, 34);
+    --success-color: rgb(37, 184, 93);
+    --input-backgroundColor: rgb(243, 243, 243);
+    --title-fontColor: rgb(80, 92, 104);
+    --label-fontColor: rgb(110, 124, 138);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(0deg, rgba(247,112,91,1) 0%, rgba(255,206,100,1) 100%);
+    font-family: 'Roboto Slab', serif;
+    color: var(--label-fontColor);
+    height: 100vh;
+}
+textarea {
+    padding: 5px;
+    font-family: 'Roboto Slab', serif;
+}
+.title {
+    background-color: white;
+    text-align: center;
+    color: var(--title-fontColor);
+}
+.form-section {
+    margin-bottom: 8px;
+    background-color: white;
+}
+.form-section label{
+    background-color: white;
+    font-size: 20px;
+}
+.form-section action{
+    background-color: white;
+}
+
+.form-section input:focus {
+    outline: 0;
+}
+.form-section textarea:focus {
+    outline: 0;
+}
+.container {
+    position: absolute;
+    width: 450px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px -8px rgb(0, 0, 0);
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    
+}
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+.textarea {
+    resize: none;
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--input-backgroundColor);
+    font-size: 18px;
+}
+.form-section input {
+    border: solid 2px white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--input-backgroundColor);
+    font-size: 18px;
+}
+
+.form-section.error input{
+    border: solid 2px var(--error-color);
+}
+.form-section.success input{
+    border: solid 2px var(--success-color);
+}
+.form-section.error textarea{
+    border: solid 2px var(--error-color);
+}
+.form-section.success textarea{
+    border: solid 2px var(--success-color);
+}
+.form-section.error action{
+    color: var(--error-color);
+}
+.form-section.success action{
+    color: var(--success-color);
+}
+.form-section action {
+    font-size: 14px;
+}
+.btn {
+    margin-top: 8px;
+    height: 40px;
+    background-color: rgb(80, 92, 104);
+    border: 0;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+}
+.btn:hover {
+    background-color: rgb(62, 74, 85);
+}

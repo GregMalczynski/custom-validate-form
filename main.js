@@ -45,6 +45,13 @@ for ( let i = 0; i < labelTags.length; i++ ) {
     }
 }
 
+const validAttributes = {
+    validateTextField: textValidate,
+    validateEmailField: emailValidate,
+    validateTextareaField: textareaValidate,
+    validatePasswordField: passwordValidate,
+}
+
 // Create querySelectors from each input tags and addEventListener for each input
 
 for ( let index = 0; index < arr.length; index++) {
@@ -52,23 +59,16 @@ for ( let index = 0; index < arr.length; index++) {
     arr[index].addEventListener('input', e => myFunction(e, index))
 }
 
-function myFunction(e, index) {
-        
-    switch ( e.target.getAttribute('data-validate-text')) {
-        case 'validateTextField':
-            textValidate(index)
-            break;
-        case 'validateEmailField':
-            emailValidate(index)
-            break;
-        case 'validateTextareaField':
-            textareaValidate(index)
-            break;
-        case 'validatePasswordField':
-            passwordValidate(index)
-            break;
+    function myFunction(e, index) {
+        const hh = e.target
+        newFunction(hh.getAttribute('data-validate-text'), index)
     }
-}
+
+    function newFunction( getAttribute, index) {
+        validAttributes[getAttribute](index)
+    }
+
+// Validate inputs
         
 form.addEventListener('submit', e => validateFunction(e))
 
@@ -77,23 +77,12 @@ function validateFunction(e) {
 
     let arrValid = []
 
-    for ( let index = 0; index < arr.length; index++ ) {
-        if ( arr[index].getAttribute('data-validate-text') === 'validateTextField' ) {
-            let textForm = textValidate(index)
-            arrValid.push(textForm)
-        }
-        if ( arr[index].getAttribute('data-validate-text') === 'validateEmailField' ) {
-            let emailForm = emailValidate(index)
-            arrValid.push(emailForm)
-        }
-        if ( arr[index].getAttribute('data-validate-text') === 'validateTextareaField' ) {
-            let textareaForm = textareaValidate(index)
-            arrValid.push(textareaForm)
-        }
-        if ( arr[index].getAttribute('data-validate-text') === 'validatePasswordField' ) {
-            let passwordForm = passwordValidate(index)
-            arrValid.push(passwordForm)
-        }
+    for ( let index = 0; index < arr.length; index++ ) {  
+        thisFunction(arr[index].getAttribute('data-validate-text'), index) 
+    }
+
+    function thisFunction(validatorRule, index) {
+        arrValid.push(validAttributes[validatorRule](index))
     }
 
     const isValidForm = arrValid.includes(false)  // Check if in arrValid array is false / if all array elements includes true - validate success!
@@ -101,7 +90,7 @@ function validateFunction(e) {
     if ( !isValidForm ) {
         console.log('Success Validate!!!')
 
-                // here connect with servar to send form validated values
+    // here connect with servar to send form validated values
     }
 }
 
@@ -123,7 +112,7 @@ let validForm = false
     const valueField = arr[index].value.trim()
 
     if ( valueField == '' || valueField == null ) {
-        if ( value === true ) {
+        if ( value ) {
             const message = `${arrLabel[index]} cannot be empty.`
             setError( message, index )
         }
@@ -180,7 +169,7 @@ let validForm = false
     const { value } = validParm
 
     if ( arr[index].value == '' || arr[index].value == null ) {
-        if ( value === true ) {
+        if ( value ) {
             const message = `${arrLabel[index]} cannot be empty.`
             setError( message, index )
         }
@@ -207,7 +196,7 @@ let validForm = false
     const { value, minLength, textFormat } = validParm
 
     if ( arr[index].value == '' || arr[index].value == null ) {
-        if ( value === true ) {
+        if ( value ) {
             const message = `${arrLabel[index]} cannot be empty.`
             setError( message, index )
         }
@@ -234,4 +223,4 @@ function setSuccess( message, index ) {
     arrAction[index].classList.add('success')
     const collection = arrAction[index].children
     collection[2].innerText = message      
-        }
+}
