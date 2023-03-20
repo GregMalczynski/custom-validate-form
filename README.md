@@ -4,6 +4,9 @@ This is a form validation , which you can customize. You can add, subtract secti
 
 ## Screenshots
 
+![App Screenshot](https://github.com/GregMalczynski/custom-validate-form/blob/master/screen-shots/custom-validate-form-1.jpg?raw=true)
+![App Screenshot](https://github.com/GregMalczynski/custom-validate-form/blob/master/screen-shots/custom-validate-form-2.jpg?raw=true)
+
 ## How To Customize
 
 If you want to add a new field / section, in the index.html file add <section> as in the example below:
